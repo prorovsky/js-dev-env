@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "prestart": "node builds/startMessage",
+    "prestart": "babel-node builds/startMessage",
     "start": "npm-run-all --parallel security-check open:src",
-    "open:src": "node builds/srcServer",
+    "open:src": "babel-node builds/srcServer",
     "security-check": "nsp check",
     "localtunnel": "lt --port 3000",
     "share": "npm-run-all --parallel open:src localtunnel"
