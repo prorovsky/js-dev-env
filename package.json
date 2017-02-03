@@ -15,7 +15,11 @@
     "test:watch": "npm run test -- --watch",
     "generate-mock-data": "babel-node builds/generateMockData",
     "prestart-mockapi": "npm run generate-mock-data",
-    "start-mockapi": "json-server --watch src/api/db.json --port 3010"
+    "start-mockapi": "json-server --watch src/api/db.json --port 3010",
+    "clean-dist": "rimraf ./dist && mkdir dist",
+    "prebuild": "npm-run-all clean-dist test lint",
+    "build": "babel-node builds/build.js",
+    "postbuild": "babel-node builds/distServer.js"
   },
   "author": "Pavel Prorovsky",
   "license": "MIT",
